@@ -434,7 +434,7 @@
         /* ══════════════════════════════════════════
            COORDINATORS
         ══════════════════════════════════════════ */
-        .coordinators-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; }
+        .coordinators-grid { font-size: 1 rem;display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; }
         .coordinator-card { text-align:center; }
         .coord-img-wrap {
             position:relative; display:inline-block;
@@ -928,27 +928,28 @@
         }
 
         /* ── SMALL PHONE: 400px – 599px ── */
-        @media (max-width: 599px) {
-            .hero h1 { font-size: clamp(1.8rem, 10vw, 2.8rem); }
-            .countdown-box label { display: none; }  /* hide labels on tiny screens, numbers are enough */
-            .countdown { gap: .5rem; }
+       @media (max-width: 599px) {
+    .hero h1 { 
+        font-size: clamp(2rem, 9vw, 2.6rem); 
+    }
 
-            .details-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .detail-item h3 { font-size: 1.5rem; }
+    .countdown {
+        gap: 0.6rem;
+    }
 
-            .coordinators-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .coord-img-wrap img { width: 90px; height: 90px; }
+    .countdown-box {
+        padding: 0.6rem;
+        min-width: 55px;
+    }
 
-            .resources-grid { grid-template-columns: 1fr; }
+    .countdown-box span {
+        font-size: 1.4rem;  /* THIS is the real fix */
+    }
 
-            .prizes-grid { grid-template-columns: 1fr; }
-
-            .faq-question { font-size: .85rem; padding: 1rem 1.1rem; }
-
-            footer { font-size: .78rem; padding: 2rem 1.5rem; }
-
-            .cta-btn { width: 100%; text-align: center; }
-        }
+    .countdown-box label {
+        display: none;
+    }
+}
 
         /* ── EXTRA SMALL: < 400px ── */
         @media (max-width: 399px) {
@@ -959,8 +960,8 @@
             .hero-eyebrow { font-size: .6rem; letter-spacing: 1px; padding: 4px 10px; }
             .hero p { font-size: .82rem; }
 
-            .countdown-box { padding: .7rem .4rem; border-radius: 10px; }
-            .countdown-box span { font-size: 1.2rem; }
+            .countdown-box { padding: .7rem .4rem; border-radius: 10px;min-width: 50px; }
+            .countdown-box span { font-size: 1.3rem; }
 
             .glass-card { padding: 1.2rem; border-radius: 14px; }
 
@@ -982,7 +983,9 @@
             body { background: white; color: black; cursor: auto; }
             .glass-card { border: 1px solid #ccc; background: white; }
         }
-
+#days, #hours, #minutes, #seconds {
+    color: #00eaff;
+}
     </style>
 </head>
 <body>
@@ -1160,7 +1163,7 @@
     <div class="coordinators-grid">
         <div class="glass-card coordinator-card">
             <div class="coord-img-wrap"><img src="src/coordinator/senthil.jpg" alt="Senthil Raja ManoKar"></div>
-            <h3>Mr B Senthil Raja ManoKar</h3>
+            <h3>Mr B Senthil Raja Manokar</h3>
             <p style="color:var(--neon-blue);font-size:.85rem;margin:.5rem 0"><b>Information Technology</b><br>Assistant Professor</p>
             <p style="opacity:.7;font-size:.9rem">📞 +91 97913 12219</p>
         </div>
@@ -1474,7 +1477,7 @@ document.addEventListener('mousemove', e => {
 
 /* ─── COUNTDOWN ─── */
 (function(){
-    const deadline = new Date("2026-04-09T09:00:00").getTime();  /* FIX: count to event start */
+    const deadline = new Date("2026-04-02T12:00:00").getTime();  /* FIX: count to event start */
     function tick(){
         const diff = Math.max(0, deadline - Date.now());
         document.getElementById('days').textContent    = String(Math.floor(diff/86400000)).padStart(2,'0');
@@ -1542,4 +1545,4 @@ function submitForm() {
 }
 </script>
 </body>
-</html>
+                                                             </html>
